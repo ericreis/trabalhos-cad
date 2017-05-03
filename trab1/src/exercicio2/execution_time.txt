@@ -1,0 +1,54 @@
+-O0
+2: Normal: 3.916 secs
+4: Normal: 3.91585 secs
+8: Normal: 4.00815 secs
+16: Normal: 3.92618 secs
+2: Tie2: 4.09411 secs
+4: Tie2: 3.80619 secs
+8: Tie2: 3.82202 secs
+16: Tie2: 3.79752 secs
+2: NB: 5.30943 secs
+4: NB: 4.54104 secs
+8: NB: 4.65066 secs
+16: NB: 4.18317 secs
+2: Combination: 4.08222 secs
+4: Combination: 2.63675 secs
+8: Combination: 1.90622 secs
+16: Combination: 1.52924 secs
+
+-O1
+2: Normal: 0.964071 secs
+4: Normal: 0.946758 secs
+8: Normal: 0.949153 secs
+16: Normal: 0.953887 secs
+2: Tie2: 1.01667 secs
+4: Tie2: 1.01229 secs
+8: Tie2: 1.03169 secs
+16: Tie2: 1.16795 secs
+2: NB: 1.39197 secs
+4: NB: 1.07556 secs
+8: NB: 1.06636 secs
+16: NB: 1.04163 secs
+2: Combination: 1.05181 secs
+4: Combination: 0.65603 secs
+8: Combination: 0.455659 secs
+16: Combination: 0.342883 secs
+
+-O3
+2: Normal: 0.190123 secs
+4: Normal: 0.186929 secs
+8: Normal: 0.191616 secs
+16: Normal: 0.191721 secs
+2: Tie2: 0.582706 secs
+4: Tie2: 0.580714 secs
+8: Tie2: 0.574171 secs
+16: Tie2: 0.580238 secs
+2: NB: 2.99471 secs
+4: NB: 1.57849 secs
+8: NB: 0.77667 secs
+16: NB: 0.529825 secs
+2: Combination: 0.750653 secs
+4: Combination: 0.465127 secs
+8: Combination: 0.354996 secs
+16: Combination: 0.207234 secs
+
