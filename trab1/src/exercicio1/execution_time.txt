@@ -1,27 +1,71 @@
-g++
 -O0
-10: IJK: 2e-06 secs
-10: JKI: 3e-06 secs
-10: KIJ: 2e-06 secs
-10: KJI: 2e-06 secs
+10: IJK: 5e-06 secs
+10: JKI: 6e-06 secs
+10: KIJ: 4e-06 secs
+10: KJI: 5e-06 secs
+100: IJK: 0.003962 secs
+100: JKI: 0.004112 secs
+100: KIJ: 0.004222 secs
+100: KJI: 0.003984 secs
+500: IJK: 0.590228 secs
+500: JKI: 0.609226 secs
+500: KIJ: 0.466759 secs
+500: KJI: 0.604628 secs
+1000: IJK: 5.00214 secs
+1000: JKI: 11.7377 secs
+1000: KIJ: 3.81656 secs
+1000: KJI: 11.6434 secs
 
 -O1
 10: IJK: 2e-06 secs
 10: JKI: 2e-06 secs
-10: KIJ: 2e-06 secs
+10: KIJ: 1e-06 secs
 10: KJI: 2e-06 secs
+100: IJK: 0.002304 secs
+100: JKI: 0.001059 secs
+100: KIJ: 0.00091 secs
+100: KJI: 0.001013 secs
+500: IJK: 0.294501 secs
+500: JKI: 0.285155 secs
+500: KIJ: 0.110765 secs
+500: KJI: 0.283688 secs
+1000: IJK: 2.39344 secs
+1000: JKI: 12.4812 secs
+1000: KIJ: 0.881299 secs
+1000: KJI: 12.4785 secs
 
 -O2
 10: IJK: 2e-06 secs
 10: JKI: 2e-06 secs
 10: KIJ: 2e-06 secs
 10: KJI: 2e-06 secs
+100: IJK: 0.000874 secs
+100: JKI: 0.00091 secs
+100: KIJ: 0.000609 secs
+100: KJI: 0.000923 secs
+500: IJK: 0.135907 secs
+500: JKI: 0.282556 secs
+500: KIJ: 0.070542 secs
+500: KJI: 0.284162 secs
+1000: IJK: 1.15735 secs
+1000: JKI: 12.8528 secs
+1000: KIJ: 0.54755 secs
+1000: KJI: 12.8615 secs
 
 -O3
-10: IJK: 3e-06 secs
-10: JKI: 3e-06 secs
-10: KIJ: 2e-06 secs
-10: KJI: 2e-06 secs
-
-
-
+10: IJK: 2e-06 secs
+10: JKI: 1e-06 secs
+10: KIJ: 1e-06 secs
+10: KJI: 1e-06 secs
+100: IJK: 0.000849 secs
+100: JKI: 0.000906 secs
+100: KIJ: 0.00019 secs
+100: KJI: 0.000863 secs
+500: IJK: 0.136098 secs
+500: JKI: 0.283756 secs
+500: KIJ: 0.029292 secs
+500: KJI: 0.284376 secs
+1000: IJK: 1.22111 secs
+1000: JKI: 12.9543 secs
+1000: KIJ: 0.173171 secs
+1000: KJI: 12.837 secs

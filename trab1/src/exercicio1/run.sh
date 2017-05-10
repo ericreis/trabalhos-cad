@@ -8,6 +8,7 @@ do
     for i in "${otm_lvls[@]}"
     do
         otm=$i
+        $compiler main.cpp -o main.out $otm
         echo $otm >> execution_time.txt
         matrix_sizes=(10)
         for j in "${matrix_sizes[@]}"
