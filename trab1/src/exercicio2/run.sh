@@ -20,5 +20,5 @@ do
         done
     done
     echo '' >> execution_time.txt
-    icc main.cpp -o main.out -qopt-report
+    icc main.cpp -o main$otm.out -qopt-report $otm
 done

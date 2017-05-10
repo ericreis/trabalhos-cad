@@ -1,8 +1,8 @@
 -O0
-2:  secs
-4:  secs
-8:  secs
-16:  secs
+2: Normal: 0 secs
+4: Normal: 0 secs
+8: Normal: 0 secs
+16: Normal: 1e-06 secs
 2:  secs
 4:  secs
 8:  secs
@@ -17,10 +17,10 @@
 16:  secs
 
 -O1
-2:  secs
-4:  secs
-8:  secs
-16:  secs
+2: Normal: 0 secs
+4: Normal: 1e-06 secs
+8: Normal: 0 secs
+16: Normal: 0 secs
 2:  secs
 4:  secs
 8:  secs
@@ -35,10 +35,10 @@
 16:  secs
 
 -O3
-2:  secs
-4:  secs
-8:  secs
-16:  secs
+2: Normal: 1e-06 secs
+4: Normal: 1e-06 secs
+8: Normal: 1e-06 secs
+16: Normal: 1e-06 secs
 2:  secs
 4:  secs
 8:  secs
