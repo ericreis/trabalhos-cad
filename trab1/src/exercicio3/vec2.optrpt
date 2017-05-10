@@ -1,0 +1,103 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: main()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main()) [1/3=33.3%] vec2.cpp(15,1)
+  -> EXTERN: (19,17) malloc(size_t)
+  -> INLINE: (22,2) setup(float *) (isz = 20) (sz = 25)
+    -> EXTERN: (43,14) rand()
+  -> EXTERN: (35,3) free(void *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at vec2.cpp(41,2) inlined into vec2.cpp(22,2)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ vec2.cpp(43,14) ]
+LOOP END
+
+LOOP BEGIN at vec2.cpp(25,2)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vec2.cpp(28,3)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vec2.cpp(28,3)
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15388: vectorization support: reference table has aligned access   [ vec2.cpp(30,4) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 199 
+      remark #15477: vector loop cost: 54.250 
+      remark #15478: estimated potential speedup: 2.970 
+      remark #15479: lightweight vector operations: 35 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=8
+   LOOP END
+
+   LOOP BEGIN at vec2.cpp(28,3)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: setup(float *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (setup(float *)) [2/3=66.7%] vec2.cpp(40,1)
+  -> EXTERN: (43,14) rand()
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at vec2.cpp(41,2)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ vec2.cpp(43,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [3/3=100.0%] <compiler generated>
+  -> EXTERN: /usr/include/c++/4.3/iostream:(77,25) __cxa_atexit()
+  -> EXTERN: /usr/include/c++/4.3/iostream:(77,25) std::ios_base::Init::Init(std::ios_base::Init *)
+
+===========================================================================

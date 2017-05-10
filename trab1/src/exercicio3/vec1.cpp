@@ -4,12 +4,13 @@ using namespace std;
 
 
 const long SIZE        = 75000;
-long arrayA[SIZE];
-long arrayB[SIZE];
+long* arrayA = (long*) malloc(SIZE * sizeof(long));
+long* arrayB = (long*) malloc(SIZE * sizeof(long));
 
 int main ()
 {
 	// Setup
+	#pragma ivdep
 	for (long i = 0; i < SIZE; i++)
 	{
 		arrayA[i] = rand() % 5000;
@@ -44,10 +45,14 @@ int main ()
 
 	/********************** Non-unit stride ***********************/
 	cout << "Non-unit Stride Loop: \n";
-	for (long i = 0; i < SIZE; i += (i > 10000)? 1 : 50)
+	for (long i = 0; i < 10000; i++)
 	{
 		arrayA[i] = i;
 	}
+	for (long i = 10000; i < SIZE; i += 50)
+        {
+                arrayA[i] = i;
+        }
 	cout << " --- DONE --- \n\n";
 
 	return EXIT_SUCCESS;

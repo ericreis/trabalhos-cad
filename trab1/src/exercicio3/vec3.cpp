@@ -21,7 +21,7 @@ int main ()
   TYPE *mem;
 	TYPE **table;
 
-	mem    = (TYPE*) malloc (HEIGHT*PADDED_WIDTH*sizeof(TYPE));
+	mem    = (TYPE*) _mm_malloc (HEIGHT*PADDED_WIDTH*sizeof(TYPE), 16);
 	table  = (TYPE**) malloc (HEIGHT*sizeof(TYPE*));
 
 	for(i =0; i < HEIGHT; i++)
@@ -35,6 +35,7 @@ int main ()
 		for (i = 0; i < HEIGHT; i++)
 		{
 
+			#pragma vector aligned
 			for (j = 0; j < PADDED_WIDTH; j++)
 			{
 				table[i][j] = (table[i][j] / 5.3f) * (table[i][j]  * table[i][j] + table[i][j]) - (12.5f / (table[i][j] + 0.3f))
@@ -46,19 +47,22 @@ int main ()
 
 
 	free(table);
-	free(mem);
+	_mm_free(mem);
 
 	return EXIT_SUCCESS;
 }
 
 void setup (TYPE **table)
 {
+	#pragma ivdep
 	for (int h = 0; h < HEIGHT; h++)
 	{
+		#pragma ivdep
 		for (int w = 0; w < WIDTH; w++)
 		{
 			table[h][w] = rand() % 10000 / 3;
 		}
+		#pragma ivdep
 		for (int w = WIDTH; w < PADDED_WIDTH; w++)
 		{
 			table[h][w] = 0;

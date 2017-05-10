@@ -21,6 +21,7 @@ int main ()
 
 	setup(table);
 
+	#pragma vector always
 	for (int x = 0; x < CALL_COUNT; x++)
 	{
 

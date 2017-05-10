@@ -1,0 +1,202 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: main()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main()) [1/9=11.1%] vec1.cpp(11,1)
+  -> EXTERN: (16,15) rand()
+  -> EXTERN: (17,15) rand()
+  -> (21,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (26,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (29,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (35,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (38,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (44,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (47,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+  -> (56,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 19) (sz = 28)
+     [[ Unable to inline callsite  <1>]]
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at vec1.cpp(14,2)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ vec1.cpp(16,15) ]
+LOOP END
+
+LOOP BEGIN at vec1.cpp(22,2)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vec1.cpp(22,2)
+   remark #15388: vectorization support: reference arrayA has aligned access   [ vec1.cpp(24,3) ]
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15479: lightweight vector operations: 2 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=9375
+LOOP END
+
+LOOP BEGIN at vec1.cpp(22,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vec1.cpp(30,2)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between arrayB line 32 and arrayB line 32
+   remark #25438: unrolled without remainder by 2  
+   remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+LOOP END
+
+LOOP BEGIN at vec1.cpp(39,2)
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.590 
+   remark #15479: lightweight vector operations: 2 
+   remark #15481: heavy-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=4687
+LOOP END
+
+LOOP BEGIN at vec1.cpp(39,2)
+<Remainder>
+   remark #25436: completely unrolled by 4  
+LOOP END
+
+LOOP BEGIN at vec1.cpp(48,2)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vec1.cpp(48,2)
+   remark #15388: vectorization support: reference arrayA has aligned access   [ vec1.cpp(50,3) ]
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 3 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15479: lightweight vector operations: 2 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=1250
+LOOP END
+
+LOOP BEGIN at vec1.cpp(48,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vec1.cpp(52,2)
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 3 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.190 
+   remark #15479: lightweight vector operations: 2 
+   remark #15481: heavy-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=162
+LOOP END
+
+LOOP BEGIN at vec1.cpp(52,2)
+<Remainder>
+   remark #25436: completely unrolled by 4  
+LOOP END
+===========================================================================
+
+Begin optimization report for: std::char_traits<char>::length(const std::char_traits<char>::char_type *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (std::char_traits<char>::length(const std::char_traits<char>::char_type *)) [3/9=33.3%] /usr/include/c++/4.3/bits/char_traits.h(262,7)
+  -> EXTERN: (262,16) __builtin_strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)) /usr/include/c++/4.3/bits/ios_base.h(164,3)
+
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [7/9=77.8%] <compiler generated>
+  -> INLINE: /usr/include/c++/4.3/iostream:(77,25) __sti__arrayB() (isz = 4) (sz = 7)
+    -> EXTERN: vec1.cpp:(8,24) malloc(size_t)
+  -> INLINE: /usr/include/c++/4.3/iostream:(77,25) __sti__arrayA() (isz = 4) (sz = 7)
+    -> EXTERN: vec1.cpp:(7,24) malloc(size_t)
+  -> EXTERN: /usr/include/c++/4.3/iostream:(77,25) __cxa_atexit()
+  -> EXTERN: /usr/include/c++/4.3/iostream:(77,25) std::ios_base::Init::Init(std::ios_base::Init *)
+
+===========================================================================
+
+Begin optimization report for: __sti__arrayA()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti__arrayA()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: __sti__arrayB()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti__arrayB()) <compiler generated>
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the function will lead to incorrect program behavior.
+
