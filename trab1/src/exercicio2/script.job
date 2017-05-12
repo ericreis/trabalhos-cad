@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=48:mpiprocs=1
+#PBS -l walltime=1:00:00
+#PBS -j oe
+#PBS -V
+### Output files
+#PBS -e $PBS_O_WORKDIR/job.err
+#PBS -o $PBS_O_WORKDIR/job.log
+#PBS -N tng9-exercicio2
+cd $PBS_O_WORKDIR
+echo "working in $PBS_O_WORKDIR..."
+./run.sh
