@@ -100,7 +100,7 @@ diffusion_baseline(REAL *f1, REAL *f2, int nx, int ny, int nz,
     #pragma omp parallel for private(z, y, x)
     for (z = 0; z < nz; z++) {
       for (y = 0; y < ny; y++) {
-        // #pragma ivdep
+        #pragma ivdep
         for (x = 0; x < nx; x++) {
           int c, w, e, n, s, b, t;
           c =  x + y * NXP + z * NXP * ny;
@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
   ct = cb = kappa*dt/(dz*dz);
   cc = 1.0 - (ce + cw + cn + cs + ct + cb);
 
-  printf("Running diffusion kernel %d times\n", count); fflush(stdout);
+  // printf("Running diffusion kernel %d times\n", count); fflush(stdout);
   gettimeofday(&time_begin, NULL);
   diffusion_baseline(f1, f2, nx, ny, nz, ce, cw, cn, cs, ct, cb, cc,
                  dt, count);
@@ -194,11 +194,13 @@ int main(int argc, char *argv[])
   double thput = (nx * ny * nz) * sizeof(REAL) * 3.0 * count
       / elapsed_time * 1.0e-09;
 
-  fprintf(stderr, "Elapsed time : %.3f (s)\n", elapsed_time);
-  fprintf(stderr, "FLOPS        : %.3f (MFlops)\n", mflops);
-  fprintf(stderr, "Throughput   : %.3f (GB/s)\n", thput);  
-  fprintf(stderr, "Accuracy     : %e\n", err);
+  // fprintf(stderr, "Elapsed time : %.3f (s)\n", elapsed_time);
+  // fprintf(stderr, "FLOPS        : %.3f (MFlops)\n", mflops);
+  // fprintf(stderr, "Throughput   : %.3f (GB/s)\n", thput);  
+  // fprintf(stderr, "Accuracy     : %e\n", err);
   
+  printf("%.3f", elapsed_time);
+
   free(f1);
   free(f2);
   return 0;
