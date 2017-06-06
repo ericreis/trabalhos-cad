@@ -42,6 +42,7 @@
 #include <omp.h>
 #include <assert.h>
 #include <sys/mman.h>
+#include <mm_malloc.h>
 
 #define REAL float
 #define NX (256)
@@ -99,7 +100,7 @@ diffusion_baseline(REAL *f1, REAL *f2, int nx, int ny, int nz,
     #pragma omp parallel for private(z, y, x)
     for (z = 0; z < nz; z++) {
       for (y = 0; y < ny; y++) {
-        #pragma ivdep
+        // #pragma ivdep
         for (x = 0; x < nx; x++) {
           int c, w, e, n, s, b, t;
           c =  x + y * NXP + z * NXP * ny;

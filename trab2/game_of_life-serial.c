@@ -23,7 +23,10 @@ int main(int argc, char *argv[])
   float x;
 
   double dtime;
-
+  double full_dtime = 0.0;
+  int count;
+  for (count = 0; count < 10; count++)
+  {
   dtime = omp_get_wtime();
 
   /* alocacao */
@@ -134,7 +137,9 @@ int main(int argc, char *argv[])
   free(new);
 
   dtime = omp_get_wtime() - dtime;
-  printf("%f\n", dtime);
+  full_dtime += dtime;
+  }
+  printf("%f\n", full_dtime / 10);
 
   return 0;
 }

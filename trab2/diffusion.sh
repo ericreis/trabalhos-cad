@@ -1,6 +1,6 @@
 [ -e diffusion-execution_time.txt ] && rm diffusion-execution_time.txt
 
-num_threads=(16)
+num_threads=(1 2 4 8 16)
 for num_thread in ${num_threads[*]}
 do
     echo 'OMP_NUM_THREADS = '$num_thread >> diffusion-execution_time.txt
